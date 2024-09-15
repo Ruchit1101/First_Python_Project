@@ -1,8 +1,8 @@
 from ..model import Students, GenderEnum
-from . import db
+from ..database import db
 
 # TASK 1:- INSERTING DATA INTO  DATABASE......
-def create_student_record(id, name, gender, maths_marks, sciece_marks, social_marks):
+def create_student_record(id, name, gender, maths_marks, science_marks, social_marks):
        try:
               gender_enum = GenderEnum[gender]
 
@@ -11,7 +11,7 @@ def create_student_record(id, name, gender, maths_marks, sciece_marks, social_ma
                      name=name,
                      gender=gender_enum,
                      maths_marks=maths_marks,
-                     sciece_marks=sciece_marks,
+                     science_marks=science_marks,
                      social_marks=social_marks
               )
               db.session.add(new_student)
@@ -22,7 +22,7 @@ def create_student_record(id, name, gender, maths_marks, sciece_marks, social_ma
        except Exception as e:
               db.session.rollback()
               return{
-                     "message":"An error encountered while inserting into database: {str(e)}"
+                     "message":f"An error encountered while inserting into database: {str(e)}"
               },500
 
 
