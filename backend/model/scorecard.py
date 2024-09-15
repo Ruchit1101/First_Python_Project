@@ -5,6 +5,7 @@ from sqlalchemy import Numeric
 # import enum
 
 db = SQLAlchemy()
+
 class GenderEnum(enum.Enum):
        male = 'Male'
        femal = 'Female'
